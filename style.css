@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --gray-color: #696969;
+  --white-color: #ffffff;
+  --pink-color: #ff8888;
+  --blue-color: #60d3db;
+}
+
+.container {
+  padding: 32px;
+  margin: 0 auto;
+  display: grid;
+  gap: 8px;
+  justify-items: start;
+}
+
+.canvas-wrapper {
+  padding: 32px;
+  border: 1px solid var(--gray-color);
+  border-radius: 8px;
+}
+
+button {
+  padding: 8px 12px;
+  color: #696969;
+  font-size: 16px;
+  border: 1px solid var(--gray-color);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 400ms;
+}
+
+button:hover {
+  color: var(--white-color);
+  background-color: var(--gray-color);
+}
