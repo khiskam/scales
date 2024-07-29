@@ -1,11 +1,11 @@
-import "./style.css";
-import { COLORS, LEVER_LEFT, LEVER_RIGHT, LEVER_TOP } from "./objects/settings";
-import { base } from "./objects/base";
-import { plug } from "./objects/plug";
-import { Lever } from "./objects/lever";
-import { Scales } from "./objects/scales";
-import { Sinker } from "./objects/sinker";
-import Canvas from "./objects/canvas";
+import "./asset/css/style.css";
+import { COLORS, LEVER_LEFT, LEVER_RIGHT, LEVER_TOP } from "./object/constants";
+import { base } from "./object/base";
+import { plug } from "./object/plug";
+import { Lever } from "./object/lever";
+import { Scales } from "./object/scales";
+import { Sinker } from "./object/sinker";
+import { Canvas } from "./object/canvas";
 
 document.querySelector("#app").innerHTML = `
   <div class="container">
@@ -20,12 +20,12 @@ document.querySelector("#app").innerHTML = `
 const wrapper = new Canvas("canvas");
 
 const lever = new Lever(
-  [LEVER_LEFT, LEVER_TOP, LEVER_RIGHT, LEVER_TOP],
+  { coords: [LEVER_LEFT, LEVER_TOP, LEVER_RIGHT, LEVER_TOP] },
   wrapper.canvas
 );
 
-const leftScales = new Scales(LEVER_LEFT, wrapper.canvas);
-const rightScales = new Scales(LEVER_RIGHT, wrapper.canvas);
+const leftScales = new Scales({ left: LEVER_LEFT }, wrapper.canvas);
+const rightScales = new Scales({ left: LEVER_RIGHT }, wrapper.canvas);
 
 const leftSinker = new Sinker(
   { left: LEVER_LEFT, fill: COLORS.pink },
@@ -51,7 +51,7 @@ wrapper.add(
   rightSinker.circle
 );
 
-wrapper.listenUpdates(objects);
+wrapper.handleUpdates(objects);
 
 document
   .querySelector("button")

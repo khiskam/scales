@@ -1,5 +1,5 @@
 import { Circle } from "fabric";
-import { CANVAS_DIMENSIONS, COLORS } from "./settings";
+import { CANVAS_DIMENSIONS, COLORS } from "./constants";
 
 export const plug = new Circle({
   radius: 20,

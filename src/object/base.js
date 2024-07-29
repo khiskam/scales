@@ -1,5 +1,5 @@
 import { Line } from "fabric";
-import { CANVAS_DIMENSIONS, COLORS, STROKE_WIDTH } from "./settings";
+import { CANVAS_DIMENSIONS, COLORS, STROKE_WIDTH } from "./constants";
 
 export const base = new Line(
   [

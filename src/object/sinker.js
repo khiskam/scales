@@ -1,7 +1,17 @@
 import { Circle } from "fabric";
-import { LEVER_TOP, SCALES_HEIGHT, SCALE_MAX, SCALE_DEFAULT } from "./settings";
+import {
+  LEVER_TOP,
+  SCALES_HEIGHT,
+  SCALE_MAX,
+  SCALE_DEFAULT,
+} from "./constants";
 
+/** Class representing a sinker.*/
 export class Sinker {
+  /** Create sinker
+   * @param {object} options - The sinker options.
+   * @param {object} objects - Objects for initialization.
+   */
   constructor(options, objects) {
     this.circle = new Circle({
       radius: 20,
@@ -25,11 +35,14 @@ export class Sinker {
       ml: false,
     });
 
-    this.circle.on("scaling", () => this.addScaleListener(objects.scales));
+    this.handleScale(objects.scales);
 
     this.canvas = objects.canvas;
   }
 
+  /** Scale sinker
+   * @param {number} top - Max top value
+   */
   scale(top) {
     if (this.circle.scaleX > SCALE_MAX) {
       this.circle.scale(SCALE_MAX);
@@ -39,7 +52,12 @@ export class Sinker {
     this.canvas.requestRenderAll();
   }
 
-  animate(height) {
+  /** Animate sinker
+   * @param {object} options - Options for animation
+   */
+  animate(options = {}) {
+    const { height = 0 } = options;
+
     this.circle.animate(
       { top: LEVER_TOP + SCALES_HEIGHT + height },
       {
@@ -51,7 +69,8 @@ export class Sinker {
     );
   }
 
-  resetAnimation() {
+  /** Return to initial position*/
+  reset() {
     this.circle.animate(
       {
         top: LEVER_TOP + SCALES_HEIGHT,
@@ -68,16 +87,24 @@ export class Sinker {
     );
   }
 
+  /** Get sinker radius
+   * @returns {number} - Sinker radius
+   */
   radius() {
     return this.circle.getRadiusX();
   }
 
-  addScaleListener(scales) {
-    if (this.circle.scaleX > SCALE_MAX) {
-      this.circle.scale(SCALE_MAX);
-    }
+  /** Handle sinker scale
+   *  @param {object} options - Options for animation
+   */
+  handleScale(scales) {
+    this.circle.on("scaling", () => {
+      if (this.circle.scaleX > SCALE_MAX) {
+        this.circle.scale(SCALE_MAX);
+      }
 
-    this.circle.set({ left: this.left, top: scales.top });
-    this.canvas.requestRenderAll();
+      this.circle.set({ left: this.left, top: scales.top });
+      this.canvas.requestRenderAll();
+    });
   }
 }
