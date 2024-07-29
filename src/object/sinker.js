@@ -6,7 +6,7 @@ import {
   SCALE_DEFAULT,
 } from "./constants";
 
-/** Class representing a sinker.*/
+/** Class representing a sinker */
 export class Sinker {
   /** Create sinker
    * @param {object} options - The sinker options.

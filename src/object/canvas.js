@@ -4,14 +4,14 @@ import { CANVAS_DIMENSIONS, LEVER_WIDTH } from "./constants";
 /** Class representing canvas */
 export class Canvas {
   /** Create canvas
-   * @param {object} id - Canvas id.
+   * @param {object} id - Canvas id
    */
   constructor(id) {
     this.canvas = new FabricCanvas(id, CANVAS_DIMENSIONS);
   }
 
   /** Handle animation
-   * @param {object} objects - Objects for animation.
+   * @param {object} objects - Objects for animation
    */
   adjustScales(objects) {
     const { lever, leftScales, rightScales, leftSinker, rightSinker } = objects;
@@ -40,21 +40,21 @@ export class Canvas {
   }
 
   /** Handle updates
-   * @param {object} objects - Objects for handling.
+   * @param {object} objects - Objects for handling
    */
   handleUpdates(objects) {
     this.canvas.on("object:modified", () => this.adjustScales(objects));
   }
 
   /** Add objects to canvas
-   * @param {object} objects - Objects for adding.
+   * @param {object} objects - Objects for adding
    */
   add(...objects) {
     this.canvas.add(...objects);
   }
 
   /** Reset objects to initial position
-   * @param {object} objects - Objects for resetting.
+   * @param {object} objects - Objects for resetting
    */
   reset(objects) {
     const { lever, leftScales, rightScales, leftSinker, rightSinker } = objects;

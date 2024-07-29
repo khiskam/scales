@@ -7,11 +7,11 @@ import {
   STROKE_WIDTH,
 } from "./constants";
 
-/** Class representing scales. */
+/** Class representing scales */
 export class Scales {
   /** Create scales
-   * @param {object} options - The scales options.
-   * @param {object} canvas - The canvas.
+   * @param {object} options - The scales options
+   * @param {object} canvas - The canvas
    */
   constructor(options, canvas) {
     this.triangle = new Triangle({
@@ -45,7 +45,7 @@ export class Scales {
   }
 
   /** Animate scales
-   * @param {object} options - Options for animation.
+   * @param {object} options - Options for animation
    */
   animate(options = {}) {
     const { height = 0 } = options;
