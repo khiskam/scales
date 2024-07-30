@@ -5,7 +5,7 @@ import { COLORS, STROKE_WIDTH } from "./constants";
 export class Lever {
   /** Create lever
    * @param {object} options - The lever options
-   * @param {object} canvas - The canvas
+   * @param {Canvas} canvas - The canvas
    */
   constructor(options, canvas) {
     this.line = new Line(options.coords, {

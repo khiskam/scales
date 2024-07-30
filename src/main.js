@@ -1,11 +1,10 @@
 import "./asset/css/style.css";
 import { COLORS, LEVER_LEFT, LEVER_RIGHT, LEVER_TOP } from "./object/constants";
-import { base } from "./object/base";
-import { plug } from "./object/plug";
 import { Lever } from "./object/lever";
 import { Scales } from "./object/scales";
 import { Sinker } from "./object/sinker";
 import { Canvas } from "./object/canvas";
+import { base, plug } from "./components";
 
 document.querySelector("#app").innerHTML = `
   <div class="container">

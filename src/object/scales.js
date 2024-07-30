@@ -11,7 +11,7 @@ import {
 export class Scales {
   /** Create scales
    * @param {object} options - The scales options
-   * @param {object} canvas - The canvas
+   * @param {Canvas} canvas - The canvas
    */
   constructor(options, canvas) {
     this.triangle = new Triangle({
