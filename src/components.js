@@ -1,7 +1,7 @@
-import { Circle, Line } from "fabric";
-import { COLORS, CANVAS_DIMENSIONS, STROKE_WIDTH } from "./object/constants";
+// import { Circle, Line } from "fabric";
+// import { COLORS, CANVAS_DIMENSIONS, STROKE_WIDTH } from "./object/constants";
 
-export const base = new Line(
+const base = new fabric.Line(
   [
     CANVAS_DIMENSIONS.width / 2,
     4,
@@ -15,7 +15,7 @@ export const base = new Line(
   }
 );
 
-export const plug = new Circle({
+const plug = new fabric.Circle({
   radius: 20,
   left: CANVAS_DIMENSIONS.width / 2,
   fill: COLORS.gray,

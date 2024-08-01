@@ -1,13 +1,13 @@
-import { Canvas as FabricCanvas } from "fabric";
-import { CANVAS_DIMENSIONS, LEVER_WIDTH } from "./constants";
+// import { Canvas as FabricCanvas } from "fabric";
+// import { CANVAS_DIMENSIONS, LEVER_WIDTH } from "./constants";
 
 /** Class representing canvas */
-export class Canvas {
+class Canvas {
   /** Create canvas
    * @param {object} id - Canvas id
    */
   constructor(id) {
-    this.canvas = new FabricCanvas(id, CANVAS_DIMENSIONS);
+    this.canvas = new fabric.Canvas(id, CANVAS_DIMENSIONS);
   }
 
   /** Handle animation

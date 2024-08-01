@@ -1,20 +1,9 @@
-import "./asset/css/style.css";
-import { COLORS, LEVER_LEFT, LEVER_RIGHT, LEVER_TOP } from "./object/constants";
-import { Lever } from "./object/lever";
-import { Scales } from "./object/scales";
-import { Sinker } from "./object/sinker";
-import { Canvas } from "./object/canvas";
-import { base, plug } from "./components";
-
-document.querySelector("#app").innerHTML = `
-  <div class="container">
-    <div class="canvas-wrapper">
-      <canvas id="canvas"></canvas>
-    </div> 
-    <button>Очистить</button>
-  </div> 
-
-`;
+// import { COLORS, LEVER_LEFT, LEVER_RIGHT, LEVER_TOP } from "./object/constants";
+// import { Lever } from "./object/lever";
+// import { Scales } from "./object/scales";
+// import { Sinker } from "./object/sinker";
+// import { Canvas } from "./object/canvas";
+// import { base, plug } from "./components";
 
 const wrapper = new Canvas("canvas");
 

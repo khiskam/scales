@@ -1,20 +1,20 @@
-import { Triangle, Line } from "fabric";
-import {
-  COLORS,
-  LEVER_TOP,
-  SCALES_HEIGHT,
-  SCALES_WIDTH,
-  STROKE_WIDTH,
-} from "./constants";
+// import { Triangle, Line } from "fabric";
+// import {
+//   COLORS,
+//   LEVER_TOP,
+//   SCALES_HEIGHT,
+//   SCALES_WIDTH,
+//   STROKE_WIDTH,
+// } from "./constants";
 
 /** Class representing scales */
-export class Scales {
+class Scales {
   /** Create scales
    * @param {object} options - The scales options
    * @param {Canvas} canvas - The canvas
    */
   constructor(options, canvas) {
-    this.triangle = new Triangle({
+    this.triangle = new fabric.Triangle({
       width: SCALES_WIDTH,
       height: SCALES_HEIGHT,
       fill: "",
@@ -26,8 +26,8 @@ export class Scales {
       ...options,
     });
 
-    const top = LEVER_TOP + SCALES_HEIGHT + STROKE_WIDTH / 2;
-    this.triangleBase = new Line(
+    const top = LEVER_TOP + SCALES_HEIGHT;
+    this.triangleBase = new fabric.Line(
       [
         options.left - SCALES_WIDTH / 2,
         top,
@@ -49,15 +49,13 @@ export class Scales {
    */
   animate(options = {}) {
     const { height = 0 } = options;
+    const onChange = () => this.canvas.requestRenderAll();
 
-    this.triangle.animate(
-      { top: LEVER_TOP + height },
-      { onChange: this.canvas.requestRenderAll() }
-    );
+    this.triangle.animate({ top: LEVER_TOP + height }, { onChange });
 
     this.triangleBase.animate(
       { top: LEVER_TOP + SCALES_HEIGHT + height },
-      { onChange: this.canvas.requestRenderAll() }
+      { onChange }
     );
   }
 }
