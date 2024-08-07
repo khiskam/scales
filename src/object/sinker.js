@@ -1,19 +1,19 @@
-// import { Circle } from "fabric";
-// import {
-//   LEVER_TOP,
-//   SCALES_HEIGHT,
-//   SCALE_MAX,
-//   SCALE_DEFAULT,
-// } from "./constants";
+import { Circle } from "fabric";
+import {
+  LEVER_TOP,
+  SCALES_HEIGHT,
+  SCALE_MAX,
+  SCALE_DEFAULT,
+} from "./constants";
 
 /** Class representing a sinker */
-class Sinker {
+export class Sinker {
   /** Create sinker
    * @param {object} options - The sinker options.
    * @param {object} objects - Objects for initialization.
    */
   constructor(options, objects) {
-    this.circle = new fabric.Circle({
+    this.circle = new Circle({
       radius: 20,
       lockMovementX: true,
       lockMovementY: true,
